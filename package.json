@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@clerk/nextjs": "^6.23.3",
     "next": "15.3.4",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
@@ -17,6 +18,8 @@
   "devDependencies": {
     "@eslint/eslintrc": "^3",
     "@tailwindcss/postcss": "^4",
+    "@types/node": "24.0.10",
+    "@types/react": "19.1.8",
     "eslint": "^9",
     "eslint-config-next": "15.3.4",
     "tailwindcss": "^4"
