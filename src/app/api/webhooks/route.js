@@ -1,10 +1,7 @@
 import { Webhook } from "svix";
 import { headers } from "next/headers";
-//import { clerkClient } from "@clerk/nextjs/server";
+import { clerkClient } from "@clerk/nextjs/server";
 import { createOrUpdateUser, deleteUser } from "@/lib/actions/user";
-import { Clerk } from "@clerk/clerk-sdk-node";
-
-const clerk = new Clerk({ secretKey: process.env.CLERK_SECRET_KEY });
 
 export async function POST(req) {
   // You can find this in the Clerk Dashboard -> Webhooks -> choose the endpoint
@@ -73,7 +70,8 @@ export async function POST(req) {
       );
       if (user && eventType === "user.created") {
         try {
-          await clerk.users.updateUser(id, {
+          const client = await clerkClient();
+          await client.users.updateUser(id, {
             publicMetadata: {
               userMongoId: user._id,
             },
