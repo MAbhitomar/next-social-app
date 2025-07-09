@@ -80,7 +80,7 @@ export default function Input() {
     setText("");
     setSelectedFile(null);
     setImageFileUrl(null);
-    // location.reload();
+    location.reload();
   };
   return (
     <div className="flex border-b border-gray-200 p-3 space-x-3 w-full">
