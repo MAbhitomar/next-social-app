@@ -13,10 +13,6 @@ export default function Input() {
   const [postLoading, setPostLoading] = useState(false);
   const imagePickRef = useRef(null);
 
-  if (!isSignedIn || !isLoaded) {
-    return null;
-  }
-
   const addImageToPost = (e) => {
     const file = e.target.files[0];
     if (file) {
@@ -82,6 +78,10 @@ export default function Input() {
     setImageFileUrl(null);
     location.reload();
   };
+
+  if (!isSignedIn || !isLoaded) {
+    return null;
+  }
   return (
     <div className="flex border-b border-gray-200 p-3 space-x-3 w-full">
       <img
